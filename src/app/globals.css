@@ -1,16 +1,16 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white: #ffffff;
+  --black: #171717;
   --primary: #004990;
   --secondary: #00a4f4;
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 html,
 body {
@@ -19,8 +19,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--black);
+  background: var(--white);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,6 +35,8 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,19 +50,67 @@ a {
   background: var(--primary);
   color: white;
 }
+.bg-secondary {
+  background: var(--secondary);
+  color: white;
+}
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 .btn-primary {
-  background: var(--primary);
+  background: linear-gradient(180deg, #014990 37.5%, #daedff 100%);
+  box-shadow: 0px 2.48px 12.42px 0px rgba(175, 194, 211, 1);
   color: white;
-  padding: 10px 20px;
+  padding: 13px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 24.5px;
   cursor: pointer;
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
+
+.my-inp-parent {
+  flex: 1;
+  position: relative;
+  border: 1px solid #d9d9dab5;
+  border-radius: 10px;
+  width: fit-content;
+  padding-left: 15px;
+}
+.my-inp-parent .inp-icon {
+  position: absolute;
+  left: 12px;
+  top: 13.5px;
+  transform: translate(-50%);
+}
+.my-inp-parent input {
+  /* background-color: ; */
+  padding: 10px 20px;
+  padding-left: 10px;
+  background-color: #fafbfe !important;
+  color: black;
+  border: none !important;
+  width: 100%;
+  height: 100%;
+}
+
+.my-inp-parent input:focus {
+  outline: none;
+}
+.my-inp-parent input::placeholder {
+  color: #abb6c7;
+}
+
+/* End common styling */
 
 /* Navbar */
 header {
@@ -76,14 +126,67 @@ header > .container {
 
 .navbar-menu {
   display: flex;
+  gap: 14px !important;
   justify-content: center;
   align-items: center;
-  gap: 8px;
   list-style: none;
+  font-weight: 400 !important;
+  font-size: 16px !important;
 }
 
 .navbar-right {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+.navbar-icon-parent {
+  display: flex;
+  gap: 5px;
+}
+.nav-icon {
+  border: 1px solid #ededed;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+.cart-icon {
+  position: relative;
+}
+.cart-icon span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--primary);
+  min-height: 15px;
+  min-width: 15px;
+  display: flex;
+  font-size: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  color: white;
+}
+
+/* banner */
+.my-cmn-text {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  color: var(--primary);
+}
+
+.my-cmn-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: url("../assets/img/my-text-underline.png") no-repeat center bottom;
+  background-size: contain;
+  pointer-events: none;
 }
