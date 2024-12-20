@@ -5,9 +5,11 @@ import Image from "next/image";
 const CommonTitle = ({
   title,
   subTitle,
+  alignment = "center",
 }: {
   title: string;
   subTitle: string;
+  alignment?: "left" | "right" | "center";
 }) => {
   return (
     <div
@@ -15,9 +17,9 @@ const CommonTitle = ({
         display: "flex",
         flexDirection: "column",
         gap: "20px",
-        width: "350px",
-        margin: "auto",
-        textAlign: "center",
+        maxWidth: "400px",
+        margin: alignment === "center" ? "auto" : 0,
+        textAlign: alignment,
       }}
     >
       <p
@@ -25,7 +27,7 @@ const CommonTitle = ({
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: alignment,
           gap: "5px",
         }}
       >

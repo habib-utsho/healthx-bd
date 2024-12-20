@@ -10,12 +10,15 @@ const Banner = () => {
     <section
       style={{ height: `92vh`, background: "#f5fcff", marginBottom: "50px" }}
     >
-      <div className="container" style={{ position: "relative" }}>
+      <div
+        className="container"
+        style={{ height: "100%", position: "relative" }}
+      >
         <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
           <div>
             <p
               className="text-secondary"
-              style={{ display: "flex", alignItems: "center" }}
+              style={{ display: "flex", alignItems: "center", gap: "8px" }}
             >
               <Image height={25} width={25} src={logo} alt="HealthXBD" /> 24/7
               Emergency Service
@@ -46,7 +49,7 @@ const Banner = () => {
             borderRadius: "10px",
             padding: "25px",
             position: "absolute",
-            bottom: "-42px",
+            bottom: "-30px",
             left: 0,
             right: 0,
             width: "100%",
